@@ -1,0 +1,19 @@
+import socket
+
+# Get input from user
+host = input("Enter Host/IP Address: ")
+port = int(input("Enter Port Number: "))
+
+# Create socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.settimeout(1)
+
+# Check port status
+result = s.connect_ex((host, port))
+
+if result == 0:
+    print(f"Port {port} is OPEN")
+else:
+    print(f"Port {port} is CLOSED")
+
+s.close()
